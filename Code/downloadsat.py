@@ -14,6 +14,14 @@ states = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado",
   "Rhode-Island","South-Carolina","South-Dakota","Tennessee","Texas","Utah",
   "Vermont","Virginia","Washington","West-Virginia","Wisconsin","Wyoming"]
 
+states2 = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado",
+  "Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois",
+  "Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland",
+  "Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana",
+  "Nebraska","Nevada","New_Hampshire","New_Jersey","New_Mexico","New_York",
+  "North_Carolina","North_Dakota","Ohio","Oklahoma","Oregon","Pennsylvania",
+  "Rhode_Island","South_Carolina","South_Dakota","Tennessee","Texas","Utah",
+  "Vermont","Virginia","Washington","West_Virginia","Wisconsin","Wyoming"]
 
 abrstates = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA", 
             "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", 
@@ -38,10 +46,11 @@ for y in states:
 #2002-2003
 for year in range(2002,2004):
     for y in states:
-        url = "http://secure-media.collegeboard.org/digitalServices/pdf/research/cb-seniors-"+str(year)+"-"+y.upper()+".pdf"
-        filename = Path("/Users/erica/Documents/VS Code Projects/Download PDF/"+str(year)+"SAT/"+str(year)+y+".pdf")
-        response = requests.get(url)
-        filename.write_bytes(response.content)
+        for z in states2:
+                url = "http://secure-media.collegeboard.org/digitalServices/pdf/research/cb-seniors-"+str(year)+"-"+z.upper()+".pdf"
+                filename = Path("/Users/erica/Documents/VS Code Projects/Download PDF/"+str(year)+"SAT/"+str(year)+y+".pdf")
+                response = requests.get(url)
+                filename.write_bytes(response.content)
 #2004, 2007
 for year in range(2004,2008,3):
     for y in states:
